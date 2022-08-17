@@ -5,6 +5,8 @@ module.exports = {
         console.log(req.user)
         try{
             const todoItems = await Todo.find({userId:req.user.id})
+            //the code talking to the database is not here, its in the MODEL
+            // (it is standard practice to capitalize the first letter in all models)
             const itemsLeft = await Todo.countDocuments({userId:req.user.id,completed: false})
             res.render('todos.ejs', {todos: todoItems, left: itemsLeft, user: req.user})
         }catch(err){
@@ -16,6 +18,7 @@ module.exports = {
             await Todo.create({todo: req.body.todoItem, completed: false, userId: req.user.id})
             console.log('Todo has been added!')
             res.redirect('/todos')
+            //we're not redirecting back to to the main page, we're taken back to "todos"
         }catch(err){
             console.log(err)
         }

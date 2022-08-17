@@ -40,6 +40,7 @@ app.use(flash())
   
 app.use('/', mainRoutes)
 app.use('/todos', todoRoutes)
+//the todos route for the post request -> look at your todoRoutes
  
 app.listen(process.env.PORT, ()=>{
     console.log('Server is running, you better catch it!')
