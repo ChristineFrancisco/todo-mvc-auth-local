@@ -31,3 +31,5 @@ module.exports = function (passport) {
     User.findById(id, (err, user) => done(err, user))
   })
 }
+
+//passport code will always be available online for you to use so you never have to write this from scratch
